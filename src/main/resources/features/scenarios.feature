@@ -7,3 +7,5 @@ Feature: Open new account
     When I select the Sauce Labs Backpack
     And I select the Sauce Labs Fleece Jacket
     Then validate that the number of the selected items is 2
+    When I go through the check process
+    Then validate that the checkout process was successful

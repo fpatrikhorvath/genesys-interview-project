@@ -23,7 +23,7 @@ public class SauceDemoLoginPage extends BasePage {
     }
 
     @Override
-    protected boolean isAt() {
+    public boolean isAt() {
         return loginButton.isDisplayed();
     }
 

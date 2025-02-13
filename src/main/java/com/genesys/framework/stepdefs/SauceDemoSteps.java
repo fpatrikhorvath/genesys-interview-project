@@ -41,4 +41,19 @@ public class SauceDemoSteps extends TestCore {
         assertThat(getSauceDemoInventoryPage().getNumberOnCartIcon())
                 .withFailMessage("Number of items on the cart badge").isEqualTo(numOfIems);
     }
+
+    @When("I go through the check process")
+    public void iGoThroughTheCheckProcess() {
+        getSauceDemoInventoryPage().clickOnTheChartIcon();
+        getSauceDemoCartPage().clickOnCheckout();
+
+        getSauceDemoCheckoutStepOnePage().fillForm("Tihamer", "Trianontagado", "5700");
+        getSauceDemoCheckoutStepTwoPage().clickFinishButton();
+    }
+
+    @Then("validate that the checkout process was successful")
+    public void validateThatTheCheckoutProcessWasSuccessful() {
+        assertThat(getSauceDemoCheckoutCompletePage().isAt())
+                .withFailMessage("Checkout process completed page is not present").isTrue();
+    }
 }

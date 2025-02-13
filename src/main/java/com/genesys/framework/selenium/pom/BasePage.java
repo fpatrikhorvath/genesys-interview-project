@@ -16,7 +16,7 @@ public abstract class BasePage {
         PageFactory.initElements(driverFactory.getDriver(), this);
     }
 
-    protected abstract boolean isAt();
+    public abstract boolean isAt();
 
     public abstract void open();
 }

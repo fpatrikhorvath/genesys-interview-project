@@ -23,7 +23,7 @@ public class SauceDemoInventoryPage extends BasePage {
     }
 
     @Override
-    protected boolean isAt() {
+    public boolean isAt() {
         return addToCartBackpackButton.isDisplayed();
     }
 
@@ -43,7 +43,12 @@ public class SauceDemoInventoryPage extends BasePage {
         return this;
     }
 
-    public String getNumberOnCartIcon(){
-        return shoppingCartBadge.getText();
+    public int getNumberOnCartIcon(){
+        return Integer.parseInt(shoppingCartBadge.getText());
+    }
+    public SauceDemoInventoryPage clickOnTheChartIcon(){
+        shoppingCartBadge.click();
+
+        return this;
     }
 }
