@@ -6,6 +6,7 @@ import com.genesys.framework.stores.Guru99Store;
 import com.genesys.framework.stores.JsonPlaceholderStore;
 import com.genesys.framework.stores.OnlineHtmlEditorStore;
 import com.genesys.framework.stores.SauceDemoStore;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
@@ -36,5 +37,12 @@ public class JsonPlaceholderSteps extends TestCore {
         for (User u : users) {
             LOG.info(u.getName() + " | " + u.getEmail());
         }
+    }
+
+    @And("validate the first email of {word} contains {word}")
+    public void validateTheFirstEmailOfContains(final String identifier, final String filterChar) {
+       final User firstUser = scenarioContext.getContextObject(identifier).get(0);
+       assertThat(firstUser.getEmail()).withFailMessage("Filter character is not in the email")
+               .contains(filterChar);
     }
 }

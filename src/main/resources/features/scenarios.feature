@@ -43,5 +43,5 @@ Feature: Interview project cases
 
   Scenario: Case 5 - REST API testing
     When I query all the users and store as user_list
-    #TODO: log config
     Then I log user_list
+    And validate the first email of user_list contains @
