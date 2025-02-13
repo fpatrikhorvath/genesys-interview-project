@@ -32,7 +32,6 @@ public class OnlineHtmlEdtiorLandingPage extends BasePage {
         return editorTextArea.isDisplayed();
     }
 
-    @Override
     public void open() {
         driverFactory.getDriver().get(onlineHtmlEditorConfig.getUrl());
     }

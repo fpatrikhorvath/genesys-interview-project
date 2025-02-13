@@ -29,6 +29,8 @@ public class WebDriverFactory {
             default -> throw new RuntimeException("The given browser is not an option!");
         }
 
+        driver.manage().window().maximize();
+
         WebDriverInitializationListener.setIsInitialized(true);
         logger.info("Chrome driver initialized: {}", WebDriverInitializationListener.isInitialized());
     }

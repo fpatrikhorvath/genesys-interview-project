@@ -33,15 +33,14 @@ public class SauceDemoInventoryPage extends BasePage {
         return addToCartBackpackButton.isDisplayed();
     }
 
-    @Override
     public void open() {
         driverFactory.getDriver().get(sauceDemoConfig.getUrl() + "/inventory.html");
     }
 
     public SauceDemoInventoryPage selectItem(final String item) {
         switch (item) {
-            case "Sauce Labs Backpack" -> addToCartBackpackButton.click();
-            case "Sauce Labs Fleece Jacket" -> addToCartFleeceJacketButton.click();
+            case "backpack" -> addToCartBackpackButton.click();
+            case "jacket" -> addToCartFleeceJacketButton.click();
             default -> {
                 throw new RuntimeException(item + " is not an option!");
             }

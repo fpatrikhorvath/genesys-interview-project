@@ -26,7 +26,7 @@ public class OnlineHtmlEditorSteps extends TestCore {
         getOnlineHtmlEdtiorLandingPage().open();
     }
 
-    @When("I type in the {} to the editor")
+    @When("I type in the {string} to the editor")
     public void iTypeInTheAutomationTestExample(final String text) {
         getOnlineHtmlEdtiorLandingPage().enterText(text);
     }
@@ -43,7 +43,6 @@ public class OnlineHtmlEditorSteps extends TestCore {
 
     @Then("validate that the formatted text is in the text editor")
     public void validateThatTheTextIsInTheTextEditor() {
-        System.out.println("boolean: " + getOnlineHtmlEdtiorLandingPage().isFormattedTextVisible());
         assertThat(getOnlineHtmlEdtiorLandingPage().isFormattedTextVisible())
                 .withFailMessage("Fully formatted text is missing")
                 .isTrue();

@@ -25,11 +25,6 @@ public class SauceDemoCheckoutStepTwoPage extends BasePage {
         return finishButton.isDisplayed();
     }
 
-    @Override
-    public void open() {
-
-    }
-
     public SauceDemoCheckoutStepTwoPage clickFinishButton() {
         finishButton.click();
 

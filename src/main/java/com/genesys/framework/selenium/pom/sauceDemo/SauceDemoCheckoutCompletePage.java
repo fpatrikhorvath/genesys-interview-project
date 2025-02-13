@@ -24,9 +24,4 @@ public class SauceDemoCheckoutCompletePage extends BasePage {
     public boolean isAt() {
         return checkOutCompleteContainer.isDisplayed();
     }
-
-    @Override
-    public void open() {
-
-    }
 }

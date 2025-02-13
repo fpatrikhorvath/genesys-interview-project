@@ -25,11 +25,6 @@ public class SauceDemoCartPage extends BasePage {
         return checkoutButton.isDisplayed();
     }
 
-    @Override
-    public void open() {
-        driverFactory.getDriver().get(sauceDemoConfig.getUrl() + "/cart.html");
-    }
-
     public SauceDemoCartPage clickOnCheckout() {
         checkoutButton.click();
 

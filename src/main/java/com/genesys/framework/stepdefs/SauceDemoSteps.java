@@ -31,8 +31,8 @@ public class SauceDemoSteps extends TestCore {
         getSauceDemoLoginPage().login("performance_glitch_user", "secret_sauce");
     }
 
-    @When("I select the {}")
-    public void iSelectTheSauceLabsBackpack(final String item) {
+    @When("I select the {word} item")
+    public void iSelectTheItem(final String item) {
         getSauceDemoInventoryPage().selectItem(item);
     }
 
@@ -62,7 +62,7 @@ public class SauceDemoSteps extends TestCore {
         getSauceDemoLoginPage().login("standard_user", "secret_sauce");
     }
 
-    @Then("validate that the footer message contains {}")
+    @Then("validate that the footer message contains {string}")
     public void validateThatTheFooterMessageContains(final String expectedText) {
         final String footerMessage = getSauceDemoInventoryPage().getFooterMessage();
         assertThat(footerMessage)
@@ -74,4 +74,5 @@ public class SauceDemoSteps extends TestCore {
     public void iScrollToTheFooter() {
         //TODO: Scroll to element via js excecutor
     }
+
 }

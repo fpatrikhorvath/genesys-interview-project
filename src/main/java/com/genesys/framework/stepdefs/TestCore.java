@@ -1,6 +1,9 @@
 package com.genesys.framework.stepdefs;
 
 import com.genesys.framework.context.ScenarioContext;
+import com.genesys.framework.selenium.pom.guru99.Guru99HomePage;
+import com.genesys.framework.selenium.pom.guru99.Guru99NavBar;
+import com.genesys.framework.selenium.pom.guru99.Guru99TooltipPage;
 import com.genesys.framework.selenium.pom.onlineHtmlEditor.OnlineHtmlEdtiorLandingPage;
 import com.genesys.framework.selenium.pom.sauceDemo.*;
 import com.genesys.framework.stores.Guru99Store;
@@ -61,5 +64,15 @@ public class TestCore {
 
     protected OnlineHtmlEdtiorLandingPage getOnlineHtmlEdtiorLandingPage() {
         return onlineHtmlEditorStore.getOnlineHtmlEdtiorLandingPage();
+    }
+
+    protected Guru99HomePage getGuru99HomePage() {
+        return guru99Store.getGuru99HomePage();
+    }
+    protected Guru99NavBar getGuru99NavBar() {
+        return guru99Store.getGuru99NavBar();
+    }
+    protected Guru99TooltipPage getGuru99TooltipPage() {
+        return guru99Store.getGuru99TooltipPage();
     }
 }

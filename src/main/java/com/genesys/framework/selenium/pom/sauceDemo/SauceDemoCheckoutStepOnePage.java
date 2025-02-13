@@ -31,10 +31,6 @@ public class SauceDemoCheckoutStepOnePage extends BasePage {
         return firstNameInputField.isDisplayed();
     }
 
-    @Override
-    public void open() {
-
-    }
 
     public SauceDemoCheckoutStepOnePage fillForm(final String firstName, final String lastName, final String postalCode) {
         firstNameInputField.sendKeys(firstName);
