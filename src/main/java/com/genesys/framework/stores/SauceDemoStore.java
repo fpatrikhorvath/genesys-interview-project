@@ -1,18 +1,18 @@
 package com.genesys.framework.stores;
 
-import com.genesys.framework.selenium.pom.SwagLabsLoginPage;
+import com.genesys.framework.selenium.pom.SauceDemoLoginPage;
 import io.cucumber.spring.ScenarioScope;
 import org.springframework.stereotype.Service;
 
 @ScenarioScope
 @Service
 public class SauceDemoStore {
-    private final SwagLabsLoginPage swagLabsLoginPage;
+    private final SauceDemoLoginPage sauceDemoLoginPage;
 
-    public SauceDemoStore(final SwagLabsLoginPage swagLabsLoginPage) {
-        this.swagLabsLoginPage = swagLabsLoginPage;
+    public SauceDemoStore(final SauceDemoLoginPage swagLabsLoginPage) {
+        this.sauceDemoLoginPage = swagLabsLoginPage;
     }
-    public SwagLabsLoginPage getSwagLabsLoginPage(){
-        return swagLabsLoginPage;
+    public SauceDemoLoginPage getSauceDemoLoginPage(){
+        return sauceDemoLoginPage;
     }
 }

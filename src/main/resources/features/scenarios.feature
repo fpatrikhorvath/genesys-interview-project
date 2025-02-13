@@ -3,3 +3,4 @@ Feature: Open new account
 
   Scenario: Automate purchase Process
     Given I am on sauce login page
+    And I log in with the credentials from the json

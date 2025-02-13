@@ -1,32 +1,39 @@
 package com.genesys.framework.stepdefs;
 
 import com.genesys.framework.context.ScenarioContext;
+import com.genesys.framework.selenium.WebDriverFactory;
+import com.genesys.framework.selenium.WebDriverInitializationListener;
 import com.genesys.framework.stores.Guru99Store;
 import com.genesys.framework.stores.JsonPlaceholderStore;
 import com.genesys.framework.stores.OnlineHtmlEditorStore;
 import com.genesys.framework.stores.SauceDemoStore;
+import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks extends TestCore {
-    //private final WebDriverFactory webDriverFactory;
+    private final WebDriverFactory webDriverFactory;
 
     public Hooks(final ScenarioContext scenarioContext, final Guru99Store guru99Store,
                  final JsonPlaceholderStore jsonPlaceholderStore, final OnlineHtmlEditorStore onlineHtmlEditorStore,
-                 final SauceDemoStore sauceDemoStore) {
+                 final SauceDemoStore sauceDemoStore, final WebDriverFactory webDriverFactory) {
         super(scenarioContext, guru99Store, jsonPlaceholderStore, onlineHtmlEditorStore, sauceDemoStore);
+        this.webDriverFactory = webDriverFactory;
     }
 
 
-//    @After
-//    public void tearDown(final Scenario scenario) {
-//
-//        if (scenario.isFailed() && WebDriverInitializationListener.isInitialized()) {
-//            final byte[] screenshot = ((TakesScreenshot) webDriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
-//            scenario.attach(screenshot, "image/png", "Screenshot");
-//        }
-//
-//        if (WebDriverInitializationListener.isInitialized()) {
-//            webDriverFactory.tearDown();
-//            WebDriverInitializationListener.setIsInitialized(false);
-//        }
-//    }
+    @After
+    public void tearDown(final Scenario scenario) {
+
+        if (scenario.isFailed() && WebDriverInitializationListener.isInitialized()) {
+            final byte[] screenshot = ((TakesScreenshot) webDriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "Screenshot");
+        }
+
+        if (WebDriverInitializationListener.isInitialized()) {
+            webDriverFactory.tearDown();
+            WebDriverInitializationListener.setIsInitialized(false);
+        }
+    }
 }
