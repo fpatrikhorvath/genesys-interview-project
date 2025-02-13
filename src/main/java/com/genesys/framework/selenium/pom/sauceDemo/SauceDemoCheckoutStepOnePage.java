@@ -20,6 +20,7 @@ public class SauceDemoCheckoutStepOnePage extends BasePage {
     private WebElement postalCodeInputField;
     @FindBy(how = How.ID, using = "continue")
     private WebElement continueButton;
+
     protected SauceDemoCheckoutStepOnePage(final WebDriverFactory driverFactory, final SauceDemoConfig sauceDemoConfig) {
         super(driverFactory);
         this.sauceDemoConfig = sauceDemoConfig;
@@ -31,11 +32,11 @@ public class SauceDemoCheckoutStepOnePage extends BasePage {
     }
 
     @Override
-    public void open(){
+    public void open() {
 
     }
 
-    public SauceDemoCheckoutStepOnePage fillForm(final String firstName, final String lastName, final String postalCode){
+    public SauceDemoCheckoutStepOnePage fillForm(final String firstName, final String lastName, final String postalCode) {
         firstNameInputField.sendKeys(firstName);
         lastNameInputField.sendKeys(lastName);
         postalCodeInputField.sendKeys(postalCode);

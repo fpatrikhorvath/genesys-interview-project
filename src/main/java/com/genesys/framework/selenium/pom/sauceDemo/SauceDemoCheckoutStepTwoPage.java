@@ -14,6 +14,7 @@ public class SauceDemoCheckoutStepTwoPage extends BasePage {
 
     @FindBy(how = How.ID, using = "finish")
     private WebElement finishButton;
+
     protected SauceDemoCheckoutStepTwoPage(final WebDriverFactory driverFactory, final SauceDemoConfig sauceDemoConfig) {
         super(driverFactory);
         this.sauceDemoConfig = sauceDemoConfig;
@@ -25,10 +26,11 @@ public class SauceDemoCheckoutStepTwoPage extends BasePage {
     }
 
     @Override
-    public void open(){
+    public void open() {
 
     }
-    public SauceDemoCheckoutStepTwoPage clickFinishButton(){
+
+    public SauceDemoCheckoutStepTwoPage clickFinishButton() {
         finishButton.click();
 
         return this;

@@ -3,7 +3,6 @@ package com.genesys.framework.selenium.pom.onlineHtmlEditor;
 import com.genesys.framework.config.OnlineHtmlEditorConfig;
 import com.genesys.framework.selenium.WebDriverFactory;
 import com.genesys.framework.selenium.pom.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +21,7 @@ public class OnlineHtmlEdtiorLandingPage extends BasePage {
     private WebElement underlineTypingButton;
     @FindBy(how = How.XPATH, using = "//strong/u[text()='Automation Test Example']")
     private WebElement expectedBoldAndUnderlinedText;
+
     protected OnlineHtmlEdtiorLandingPage(final WebDriverFactory driverFactory, final OnlineHtmlEditorConfig onlineHtmlEditorConfig) {
         super(driverFactory);
         this.onlineHtmlEditorConfig = onlineHtmlEditorConfig;

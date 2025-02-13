@@ -4,9 +4,6 @@ import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.spring.ScenarioScope;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.List;
-
 @Service
 @ScenarioScope
 public class MapperService {

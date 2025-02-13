@@ -33,7 +33,7 @@ public class SauceDemoSteps extends TestCore {
 
     @When("I select the {}")
     public void iSelectTheSauceLabsBackpack(final String item) {
-       getSauceDemoInventoryPage().selectItem(item);
+        getSauceDemoInventoryPage().selectItem(item);
     }
 
     @Then("validate that the number of the selected items is {int}")
@@ -69,6 +69,7 @@ public class SauceDemoSteps extends TestCore {
                 .withFailMessage("Validating the footer message")
                 .contains(expectedText);
     }
+
     @And("I scroll to the footer")
     public void iScrollToTheFooter() {
         //TODO: Scroll to element via js excecutor

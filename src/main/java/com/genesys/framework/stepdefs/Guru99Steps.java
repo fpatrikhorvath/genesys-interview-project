@@ -5,12 +5,7 @@ import com.genesys.framework.stores.Guru99Store;
 import com.genesys.framework.stores.JsonPlaceholderStore;
 import com.genesys.framework.stores.OnlineHtmlEditorStore;
 import com.genesys.framework.stores.SauceDemoStore;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class Guru99Steps extends TestCore {
 

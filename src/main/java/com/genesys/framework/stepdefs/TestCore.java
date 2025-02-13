@@ -42,9 +42,11 @@ public class TestCore {
     protected SauceDemoInventoryPage getSauceDemoInventoryPage() {
         return sauceDemoStore.getSauceDemoInventoryPage();
     }
+
     protected SauceDemoCartPage getSauceDemoCartPage() {
         return sauceDemoStore.getSauceDemoCartPage();
     }
+
     protected SauceDemoCheckoutStepOnePage getSauceDemoCheckoutStepOnePage() {
         return sauceDemoStore.getSauceDemoCheckoutStepOnePage();
     }
@@ -52,9 +54,11 @@ public class TestCore {
     protected SauceDemoCheckoutStepTwoPage getSauceDemoCheckoutStepTwoPage() {
         return sauceDemoStore.getSauceDemoCheckoutStepTwoPage();
     }
+
     protected SauceDemoCheckoutCompletePage getSauceDemoCheckoutCompletePage() {
         return sauceDemoStore.getSauceDemoCheckoutCompletePage();
     }
+
     protected OnlineHtmlEdtiorLandingPage getOnlineHtmlEdtiorLandingPage() {
         return onlineHtmlEditorStore.getOnlineHtmlEdtiorLandingPage();
     }

@@ -30,7 +30,7 @@ public class SauceDemoCartPage extends BasePage {
         driverFactory.getDriver().get(sauceDemoConfig.getUrl() + "/cart.html");
     }
 
-    public SauceDemoCartPage clickOnCheckout(){
+    public SauceDemoCartPage clickOnCheckout() {
         checkoutButton.click();
 
         return this;

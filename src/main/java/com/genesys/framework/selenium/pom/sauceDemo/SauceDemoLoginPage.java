@@ -14,9 +14,9 @@ public class SauceDemoLoginPage extends BasePage {
     @FindBy(how = How.ID, using = "user-name")
     private       WebElement      usernameInputField;
     @FindBy(how = How.ID, using = "password")
-    private       WebElement   passwordInputField;
+    private       WebElement      passwordInputField;
     @FindBy(how = How.ID, using = "login-button")
-    private       WebElement   loginButton;
+    private       WebElement      loginButton;
 
     protected SauceDemoLoginPage(final WebDriverFactory driverFactory, final SauceDemoConfig sauceDemoConfig) {
         super(driverFactory);

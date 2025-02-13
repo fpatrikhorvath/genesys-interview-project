@@ -43,7 +43,7 @@ public class OnlineHtmlEditorSteps extends TestCore {
 
     @Then("validate that the formatted text is in the text editor")
     public void validateThatTheTextIsInTheTextEditor() {
-        System.out.println("boolean: "+getOnlineHtmlEdtiorLandingPage().isFormattedTextVisible());
+        System.out.println("boolean: " + getOnlineHtmlEdtiorLandingPage().isFormattedTextVisible());
         assertThat(getOnlineHtmlEdtiorLandingPage().isFormattedTextVisible())
                 .withFailMessage("Fully formatted text is missing")
                 .isTrue();

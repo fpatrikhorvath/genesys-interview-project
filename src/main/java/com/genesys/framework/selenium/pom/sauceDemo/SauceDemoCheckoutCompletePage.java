@@ -14,6 +14,7 @@ public class SauceDemoCheckoutCompletePage extends BasePage {
 
     @FindBy(how = How.ID, using = "checkout_complete_container")
     private WebElement checkOutCompleteContainer;
+
     protected SauceDemoCheckoutCompletePage(final WebDriverFactory driverFactory, final SauceDemoConfig sauceDemoConfig) {
         super(driverFactory);
         this.sauceDemoConfig = sauceDemoConfig;
@@ -25,7 +26,7 @@ public class SauceDemoCheckoutCompletePage extends BasePage {
     }
 
     @Override
-    public void open(){
+    public void open() {
 
     }
 }
