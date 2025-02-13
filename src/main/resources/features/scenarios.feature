@@ -18,7 +18,6 @@ Feature: Interview project cases
     When I log in as standard user
     And I scroll to the footer
     #TODO: Missing the scrolling
-    #TODO: should I split it up to 2?
     Then validate that the footer message contains "2025"
     Then validate that the footer message contains "Terms of Service"
 
@@ -43,6 +42,7 @@ Feature: Interview project cases
     When I click on selenium dropdown and choose the tooltip option
     Then validate the tooltip page contains the download now button
 
+    #TODO: Selenium opens up
   Scenario: Case 5 - REST API testing
     When I query all the users
     #Then I log the names and the email addresses

@@ -47,4 +47,16 @@ public class Address {
     public void setGeo(Geo geo) {
         this.geo = geo;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Address{");
+        sb.append("street='").append(street).append('\'');
+        sb.append(", suite='").append(suite).append('\'');
+        sb.append(", city='").append(city).append('\'');
+        sb.append(", zipcode='").append(zipcode).append('\'');
+        sb.append(", geo=").append(geo);
+        sb.append('}');
+        return sb.toString();
+    }
 }

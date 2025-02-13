@@ -74,4 +74,19 @@ public class User {
     public void setCompany(Company company) {
         this.company = company;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", username='").append(username).append('\'');
+        sb.append(", email='").append(email).append('\'');
+        sb.append(", address=").append(address);
+        sb.append(", phone='").append(phone).append('\'');
+        sb.append(", website='").append(website).append('\'');
+        sb.append(", company=").append(company);
+        sb.append('}');
+        return sb.toString();
+    }
 }

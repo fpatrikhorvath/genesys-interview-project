@@ -29,4 +29,14 @@ public class Company {
     public void setBs(String bs) {
         this.bs = bs;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Company{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", catchPhrase='").append(catchPhrase).append('\'');
+        sb.append(", bs='").append(bs).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
