@@ -1,28 +1,24 @@
 package com.genesys.framework.context;
 
 
-import com.genesys.framework.services.util.MapperService;
+import com.genesys.framework.rest.response.User;
 import io.cucumber.spring.ScenarioScope;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Component
 @ScenarioScope
 public class ScenarioContext {
-    private final MapperService           mapperService;
-    private final HashMap<String, Object> contextObjectMap = new HashMap<>();
+    private final HashMap<String, List<User>> contextUserList = new HashMap<>();
 
 
-    public ScenarioContext(final MapperService mapperService) {
-        this.mapperService = mapperService;
+    public void storeContextUserList(final String key, final List<User> userList) {
+        contextUserList.put(key, userList);
     }
 
-    public void storeContextObject(final String key, final Object object) {
-        contextObjectMap.put(key, object);
-    }
-
-    public Object getContextObject(final String key) {
-        return contextObjectMap.get(key);
+    public List<User> getContextObject(final String key) {
+        return contextUserList.get(key);
     }
 }

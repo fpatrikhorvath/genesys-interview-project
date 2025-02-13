@@ -24,7 +24,6 @@ Feature: Interview project cases
 
   Scenario: Case 3 - Rich text Editor
     Given I am on the rich text editor page
-    #TODO: wait for the editor
     When I type in the "Automation Test Example" to the editor
     And I select all the text in the editor
     And I apply bold formatting on the editor
@@ -42,7 +41,7 @@ Feature: Interview project cases
     When I click on selenium dropdown and choose the tooltip option
     Then validate the tooltip page contains the download now button
 
-    #TODO: Selenium opens up
   Scenario: Case 5 - REST API testing
-    When I query all the users
-    #Then I log the names and the email addresses
+    When I query all the users and store as user_list
+    #TODO: log config
+    Then I log user_list

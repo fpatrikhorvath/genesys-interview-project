@@ -10,6 +10,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.TimeUnit;
+
 @Component
 public class WebDriverFactory {
     private static final Logger         logger = LogManager.getLogger(WebDriverFactory.class);
@@ -30,6 +32,7 @@ public class WebDriverFactory {
         }
 
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(seleniumConfig.getTimeout(), TimeUnit.SECONDS);
 
         WebDriverInitializationListener.setIsInitialized(true);
         logger.info("Chrome driver initialized: {}", WebDriverInitializationListener.isInitialized());
