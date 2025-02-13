@@ -9,11 +9,11 @@ import java.io.IOException;
 
 @Service
 public class SauceDemoCredJsonReaderService {
-    private static final String PATH = "src/test/resources/sauce-demo-credential.json";
+    private static final String PATH = "src/main/resources/sauce-demo-credential.json";
 
     public SauceDemoCredConfig readJsonFile() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        File         jsonFile     = new File(PATH);
+        final ObjectMapper objectMapper = new ObjectMapper();
+        final File         jsonFile     = new File(PATH);
 
         return objectMapper.readValue(jsonFile, SauceDemoCredConfig.class);
     }

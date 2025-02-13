@@ -32,9 +32,27 @@ public class SauceDemoLoginPage extends BasePage {
         driverFactory.getDriver().get(sauceDemoConfig.getUrl());
     }
 
-    public SauceDemoLoginPage login(final String username, final String password) {
+    public SauceDemoLoginPage loginByType(final String username, final String password) {
         usernameInputField.sendKeys(username);
         passwordInputField.sendKeys(password);
+        loginButton.click();
+
+        return this;
+    }
+
+    public SauceDemoLoginPage loginByType(final String type) {
+        switch (type) {
+            case "standard":
+                usernameInputField.sendKeys(sauceDemoConfig.getUsername());
+                passwordInputField.sendKeys(sauceDemoConfig.getPassword());
+                break;
+//            case "other":
+//                usernameInputField.sendKeys(sauceDemoConfig.getUsername());
+//                passwordInputField.sendKeys(sauceDemoConfig.getPassword());
+//                break;
+            default:
+                throw new RuntimeException(type + " is not an option!");
+        }
         loginButton.click();
 
         return this;

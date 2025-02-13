@@ -1,6 +1,8 @@
 package com.genesys.framework.stepdefs;
 
+import com.genesys.framework.config.SauceDemoCredConfig;
 import com.genesys.framework.context.ScenarioContext;
+import com.genesys.framework.services.SauceDemoCredJsonReaderService;
 import com.genesys.framework.stores.Guru99Store;
 import com.genesys.framework.stores.JsonPlaceholderStore;
 import com.genesys.framework.stores.OnlineHtmlEditorStore;
@@ -10,15 +12,18 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.io.IOException;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class SauceDemoSteps extends TestCore {
-
+    private final SauceDemoCredJsonReaderService sauceDemoCredJsonReaderService;
 
     public SauceDemoSteps(final ScenarioContext scenarioContext, final Guru99Store guru99Store,
                           final JsonPlaceholderStore jsonPlaceholderStore, final OnlineHtmlEditorStore onlineHtmlEditorStore,
-                          final SauceDemoStore sauceDemoStore) {
+                          final SauceDemoStore sauceDemoStore, final SauceDemoCredJsonReaderService sauceDemoCredJsonReaderService) {
         super(scenarioContext, guru99Store, jsonPlaceholderStore, onlineHtmlEditorStore, sauceDemoStore);
+        this.sauceDemoCredJsonReaderService = sauceDemoCredJsonReaderService;
     }
 
     @Given("I am on the sauce inventory page")
@@ -27,8 +32,9 @@ public class SauceDemoSteps extends TestCore {
     }
 
     @And("I log in with the credentials from the json")
-    public void iLogInWithTheCredentialsFromTheJson() {
-        getSauceDemoLoginPage().login("performance_glitch_user", "secret_sauce");
+    public void iLogInWithTheCredentialsFromTheJson() throws IOException {
+        final SauceDemoCredConfig sauceDemoCredConfig = sauceDemoCredJsonReaderService.readJsonFile();
+        getSauceDemoLoginPage().loginByType(sauceDemoCredConfig.getUsername(), sauceDemoCredConfig.getPassword());
     }
 
     @When("I select the {word} item")
@@ -47,7 +53,7 @@ public class SauceDemoSteps extends TestCore {
         getSauceDemoInventoryPage().clickOnTheChartIcon();
         getSauceDemoCartPage().clickOnCheckout();
 
-        getSauceDemoCheckoutStepOnePage().fillForm("Tihamer", "Trianontagado", "5700");
+        getSauceDemoCheckoutStepOnePage().fillForm("Tihamer", "Test", "5700");
         getSauceDemoCheckoutStepTwoPage().clickFinishButton();
     }
 
@@ -59,7 +65,7 @@ public class SauceDemoSteps extends TestCore {
 
     @And("I log in as {word} user")
     public void iLogInAsStandardUser(final String userType) {
-        getSauceDemoLoginPage().login("standard_user", "secret_sauce");
+        getSauceDemoLoginPage().loginByType(userType);
     }
 
     @Then("validate that the footer message contains {string}")
@@ -72,7 +78,7 @@ public class SauceDemoSteps extends TestCore {
 
     @And("I scroll to the footer")
     public void iScrollToTheFooter() {
-        //TODO: Scroll to element via js excecutor
+        getSauceDemoInventoryPage().scrollToFooter();
     }
 
 }

@@ -1,9 +1,7 @@
 Feature: Interview project cases
 
-  #TODO: Loggerization
   Scenario: Case 1 - Automate purchase process
     Given I am on the sauce inventory page
-    #TODO: implement it
     And I log in with the credentials from the json
     When I select the backpack item
     And I select the jacket item
@@ -11,16 +9,12 @@ Feature: Interview project cases
     When I go through the check process
     Then validate that the checkout process was successful
 
-
   Scenario: Case 2 - Verify error messages for mandatory fields
     Given I am on the sauce inventory page
-        #TODO: User
     When I log in as standard user
     And I scroll to the footer
-    #TODO: Missing the scrolling
     Then validate that the footer message contains "2025"
     Then validate that the footer message contains "Terms of Service"
-
 
   Scenario: Case 3 - Rich text Editor
     Given I am on the rich text editor page

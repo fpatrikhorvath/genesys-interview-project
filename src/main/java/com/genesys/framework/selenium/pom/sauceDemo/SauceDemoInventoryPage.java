@@ -61,4 +61,10 @@ public class SauceDemoInventoryPage extends BasePage {
     public String getFooterMessage() {
         return footerMessageContainer.getText();
     }
+
+    public SauceDemoInventoryPage scrollToFooter() {
+        jsExcecutor.executeScript("arguments[0].scrollIntoView(true);", footerMessageContainer);
+
+        return this;
+    }
 }

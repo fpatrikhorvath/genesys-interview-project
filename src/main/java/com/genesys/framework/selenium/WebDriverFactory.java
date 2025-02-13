@@ -60,6 +60,7 @@ public class WebDriverFactory {
 
     public void tearDown() {
         if (WebDriverInitializationListener.isInitialized()) {
+            driver.close();
             driver.quit();
             WebDriverInitializationListener.setIsInitialized(false);
         }

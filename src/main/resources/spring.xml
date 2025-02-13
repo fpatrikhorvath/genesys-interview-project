@@ -42,6 +42,9 @@
     <bean id="sauceDemoConfig" class="com.genesys.framework.config.SauceDemoConfig" autowire-candidate="true">
         <constructor-arg value="${sauce.demo.protocol}" type="java.lang.String"/>
         <constructor-arg value="${sauce.demo.ip}" type="java.lang.String"/>
+
+        <constructor-arg value="${sauce.demo.username}" type="java.lang.String"/>
+        <constructor-arg value="${sauce.demo.password}" type="java.lang.String"/>
     </bean>
 
     <bean id="seleniumConfig" class="com.genesys.framework.config.SeleniumConfig" autowire-candidate="true">
