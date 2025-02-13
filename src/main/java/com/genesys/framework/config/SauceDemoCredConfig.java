@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Scope;
 import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 
 @Scope(SCOPE_CUCUMBER_GLUE)
-public class Guru99CredConfig {
+public class SauceDemoCredConfig {
     private String username;
     private String password;
 
