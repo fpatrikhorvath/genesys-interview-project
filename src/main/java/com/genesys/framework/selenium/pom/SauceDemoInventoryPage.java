@@ -15,8 +15,13 @@ public class SauceDemoInventoryPage extends BasePage {
     private WebElement addToCartBackpackButton;
     @FindBy(how = How.ID, using = "add-to-cart-sauce-labs-fleece-jacket")
     private WebElement addToCartFleeceJacketButton;
+    @FindBy(how = How.XPATH, using = "//div[@data-test='footer-copy']")
+    private WebElement footerMessageContainer;
+
     @FindBy(how = How.XPATH, using = "//span[@data-test='shopping-cart-badge']")
     private WebElement shoppingCartBadge;
+
+
     protected SauceDemoInventoryPage(final WebDriverFactory driverFactory, final SauceDemoConfig sauceDemoConfig) {
         super(driverFactory);
         this.sauceDemoConfig = sauceDemoConfig;
@@ -43,12 +48,17 @@ public class SauceDemoInventoryPage extends BasePage {
         return this;
     }
 
-    public int getNumberOnCartIcon(){
+    public int getNumberOnCartIcon() {
         return Integer.parseInt(shoppingCartBadge.getText());
     }
-    public SauceDemoInventoryPage clickOnTheChartIcon(){
+
+    public SauceDemoInventoryPage clickOnTheChartIcon() {
         shoppingCartBadge.click();
 
         return this;
+    }
+
+    public String getFooterMessage() {
+        return footerMessageContainer.getText();
     }
 }

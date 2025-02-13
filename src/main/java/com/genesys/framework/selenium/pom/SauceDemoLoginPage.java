@@ -31,10 +31,9 @@ public class SauceDemoLoginPage extends BasePage {
         driverFactory.getDriver().get(sauceDemoConfig.getUrl());
     }
 
-    public SauceDemoLoginPage login() {
-        //TODO: CRED- JSON
-        usernameInputField.sendKeys("performance_glitch_user");
-        passwordInputField.sendKeys("secret_sauce");
+    public SauceDemoLoginPage login(final String username, final String password) {
+        usernameInputField.sendKeys(username);
+        passwordInputField.sendKeys(password);
         loginButton.click();
 
         return this;

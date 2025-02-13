@@ -28,7 +28,7 @@ public class SauceDemoSteps extends TestCore {
 
     @And("I log in with the credentials from the json")
     public void iLogInWithTheCredentialsFromTheJson() {
-        getSauceDemoLoginPage().login();
+        getSauceDemoLoginPage().login("performance_glitch_user", "secret_sauce");
     }
 
     @When("I select the {}")
@@ -55,5 +55,23 @@ public class SauceDemoSteps extends TestCore {
     public void validateThatTheCheckoutProcessWasSuccessful() {
         assertThat(getSauceDemoCheckoutCompletePage().isAt())
                 .withFailMessage("Checkout process completed page is not present").isTrue();
+    }
+
+    @And("I log in as {word} user")
+    public void iLogInAsStandardUser(final String userType) {
+        getSauceDemoLoginPage().login("standard_user", "secret_sauce");
+    }
+    @Then("validate that the footer message contains the mandatory texts")
+    public void validateThatTheFooterMessageContainsTheMandatoryTexts() {
+        final String footerMessage = getSauceDemoInventoryPage().getFooterMessage();
+        assertThat(footerMessage)
+                .withFailMessage("Validating the footer message")
+                .contains("2025")
+                .contains("Terms of Service");
+    }
+
+    @And("I scroll to the footer")
+    public void iScrollToTheFooter() {
+        //TODO: Scroll to element via js excecutor
     }
 }
