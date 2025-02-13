@@ -26,7 +26,6 @@
     <bean id="guru99Config" class="com.genesys.framework.config.Guru99Config" autowire-candidate="true">
         <constructor-arg value="${guru.protocol}" type="java.lang.String"/>
         <constructor-arg value="${guru.ip}" type="java.lang.String"/>
-        <constructor-arg value="${guru.basePath}" type="java.lang.String"/>
     </bean>
     <bean id="jsonPlaceholderConfig" class="com.genesys.framework.config.JsonPlaceholderConfig"
           autowire-candidate="true">
@@ -43,7 +42,6 @@
     <bean id="sauceDemoConfig" class="com.genesys.framework.config.SauceDemoConfig" autowire-candidate="true">
         <constructor-arg value="${sauce.demo.protocol}" type="java.lang.String"/>
         <constructor-arg value="${sauce.demo.ip}" type="java.lang.String"/>
-        <constructor-arg value="${sauce.demo.basePath}" type="java.lang.String"/>
     </bean>
 
     <bean id="seleniumConfig" class="com.genesys.framework.config.SeleniumConfig" autowire-candidate="true">

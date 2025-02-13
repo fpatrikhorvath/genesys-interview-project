@@ -18,4 +18,5 @@ public abstract class BasePage {
 
     protected abstract boolean isAt();
 
+    public abstract void open();
 }

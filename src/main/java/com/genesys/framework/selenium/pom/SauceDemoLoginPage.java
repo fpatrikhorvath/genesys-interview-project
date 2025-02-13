@@ -33,8 +33,8 @@ public class SauceDemoLoginPage extends BasePage {
 
     public SauceDemoLoginPage login() {
         //TODO: CRED- JSON
-        usernameInputField.sendKeys("replace me");
-        passwordInputField.sendKeys("replace me");
+        usernameInputField.sendKeys("performance_glitch_user");
+        passwordInputField.sendKeys("secret_sauce");
         loginButton.click();
 
         return this;

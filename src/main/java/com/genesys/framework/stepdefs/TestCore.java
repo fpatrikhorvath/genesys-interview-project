@@ -1,6 +1,7 @@
 package com.genesys.framework.stepdefs;
 
 import com.genesys.framework.context.ScenarioContext;
+import com.genesys.framework.selenium.pom.SauceDemoInventoryPage;
 import com.genesys.framework.selenium.pom.SauceDemoLoginPage;
 import com.genesys.framework.stores.Guru99Store;
 import com.genesys.framework.stores.JsonPlaceholderStore;
@@ -17,11 +18,11 @@ import org.springframework.test.context.ContextConfiguration;
 @SpringBootTest(classes = TestCore.class)
 public class TestCore {
 
-    protected final ScenarioContext scenarioContext;
-    private final Guru99Store          guru99Store;
-    private final JsonPlaceholderStore  jsonPlaceholderStore;
-    private final OnlineHtmlEditorStore onlineHtmlEditorStore;
-    private final SauceDemoStore        sauceDemoStore;
+    protected final ScenarioContext       scenarioContext;
+    private final   Guru99Store           guru99Store;
+    private final   JsonPlaceholderStore  jsonPlaceholderStore;
+    private final   OnlineHtmlEditorStore onlineHtmlEditorStore;
+    private final   SauceDemoStore        sauceDemoStore;
 
 
     public TestCore(final ScenarioContext scenarioContext, final Guru99Store guru99Store,
@@ -33,7 +34,12 @@ public class TestCore {
         this.onlineHtmlEditorStore = onlineHtmlEditorStore;
         this.sauceDemoStore        = sauceDemoStore;
     }
-    protected SauceDemoLoginPage getSauceDemoLoginPage(){
+
+    protected SauceDemoLoginPage getSauceDemoLoginPage() {
         return sauceDemoStore.getSauceDemoLoginPage();
+    }
+
+    protected SauceDemoInventoryPage getSauceDemoInventoryPage() {
+        return sauceDemoStore.getSauceDemoInventoryPage();
     }
 }
