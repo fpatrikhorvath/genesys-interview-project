@@ -21,7 +21,7 @@ public class SauceDemoSteps extends TestCore {
         super(scenarioContext, guru99Store, jsonPlaceholderStore, onlineHtmlEditorStore, sauceDemoStore);
     }
 
-    @Given("I am on sauce inventory page")
+    @Given("I am on the sauce inventory page")
     public void imOnTheSauceDemoInventoryPage() {
         getSauceDemoInventoryPage().open();
     }
@@ -61,15 +61,14 @@ public class SauceDemoSteps extends TestCore {
     public void iLogInAsStandardUser(final String userType) {
         getSauceDemoLoginPage().login("standard_user", "secret_sauce");
     }
-    @Then("validate that the footer message contains the mandatory texts")
-    public void validateThatTheFooterMessageContainsTheMandatoryTexts() {
+
+    @Then("validate that the footer message contains {}")
+    public void validateThatTheFooterMessageContains(final String expectedText) {
         final String footerMessage = getSauceDemoInventoryPage().getFooterMessage();
         assertThat(footerMessage)
                 .withFailMessage("Validating the footer message")
-                .contains("2025")
-                .contains("Terms of Service");
+                .contains(expectedText);
     }
-
     @And("I scroll to the footer")
     public void iScrollToTheFooter() {
         //TODO: Scroll to element via js excecutor

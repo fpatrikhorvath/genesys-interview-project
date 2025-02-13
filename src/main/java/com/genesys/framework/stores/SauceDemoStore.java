@@ -1,6 +1,6 @@
 package com.genesys.framework.stores;
 
-import com.genesys.framework.selenium.pom.*;
+import com.genesys.framework.selenium.pom.sauceDemo.*;
 import io.cucumber.spring.ScenarioScope;
 import org.springframework.stereotype.Service;
 

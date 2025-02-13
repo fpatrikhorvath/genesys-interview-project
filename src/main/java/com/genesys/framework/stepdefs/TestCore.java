@@ -1,7 +1,8 @@
 package com.genesys.framework.stepdefs;
 
 import com.genesys.framework.context.ScenarioContext;
-import com.genesys.framework.selenium.pom.*;
+import com.genesys.framework.selenium.pom.onlineHtmlEditor.OnlineHtmlEdtiorLandingPage;
+import com.genesys.framework.selenium.pom.sauceDemo.*;
 import com.genesys.framework.stores.Guru99Store;
 import com.genesys.framework.stores.JsonPlaceholderStore;
 import com.genesys.framework.stores.OnlineHtmlEditorStore;
@@ -53,5 +54,8 @@ public class TestCore {
     }
     protected SauceDemoCheckoutCompletePage getSauceDemoCheckoutCompletePage() {
         return sauceDemoStore.getSauceDemoCheckoutCompletePage();
+    }
+    protected OnlineHtmlEdtiorLandingPage getOnlineHtmlEdtiorLandingPage() {
+        return onlineHtmlEditorStore.getOnlineHtmlEdtiorLandingPage();
     }
 }
