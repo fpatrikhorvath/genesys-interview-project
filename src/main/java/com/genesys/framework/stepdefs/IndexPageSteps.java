@@ -18,6 +18,7 @@ public class IndexPageSteps extends TestCore {
 
     @Given("I am on sauce login page")
     public void imOnTheSauceDemoLoginPage() {
-        System.out.println("ASDDDS");
+        getSwagLabsLoginPage().open();
+        System.out.println("");
     }
 }

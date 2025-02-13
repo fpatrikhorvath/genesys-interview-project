@@ -1,6 +1,7 @@
 package com.genesys.framework.stepdefs;
 
 import com.genesys.framework.context.ScenarioContext;
+import com.genesys.framework.selenium.pom.SwagLabsLoginPage;
 import com.genesys.framework.stores.Guru99Store;
 import com.genesys.framework.stores.JsonPlaceholderStore;
 import com.genesys.framework.stores.OnlineHtmlEditorStore;
@@ -32,5 +33,8 @@ public class TestCore {
         this.jsonPlaceholderStore  = jsonPlaceholderStore;
         this.onlineHtmlEditorStore = onlineHtmlEditorStore;
         this.sauceDemoStore        = sauceDemoStore;
+    }
+    protected SwagLabsLoginPage getSwagLabsLoginPage(){
+        return sauceDemoStore.getSwagLabsLoginPage();
     }
 }

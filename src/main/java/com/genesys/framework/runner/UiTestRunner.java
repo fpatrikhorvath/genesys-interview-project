@@ -8,7 +8,6 @@ import org.testng.annotations.DataProvider;
         features = {"classpath:features"},
         glue = {"com.genesys.framework.stepdefs"},
         tags = "@ui"
-        //plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
 )
 public class UiTestRunner extends AbstractTestNGCucumberTests {
     @Override

@@ -6,8 +6,8 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
         features = {"classpath:features/user-layer"},
-        glue = {"com.genesys.framework.stepdefs"}
-        //plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
+        glue = {"com.genesys.framework.stepdefs"},
+        tags = "@api"
 )
 public class ApiTestRunner extends AbstractTestNGCucumberTests {
     @Override
