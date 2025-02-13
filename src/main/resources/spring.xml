@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                 http://www.springframework.org/schema/context
+                 http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <context:component-scan base-package="com.genesys.framework"/>
+
+    <bean id="propertyConfigurer" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:guru99.properties</value>
+                <value>classpath*:json-placeholder.properties</value>
+                <value>classpath*:online-html-editor.properties</value>
+                <value>classpath*:sauce-demo.properties</value>
+                <value>classpath*:selenium.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="guru99Config" class="com.genesys.framework.config.Guru99Config" autowire-candidate="true">
+        <constructor-arg value="${guru.protocol}" type="java.lang.String"/>
+        <constructor-arg value="${guru.ip}" type="java.lang.String"/>
+        <constructor-arg value="${guru.basePath}" type="java.lang.String"/>
+    </bean>
+    <bean id="jsonPlaceholderConfig" class="com.genesys.framework.config.JsonPlaceholderConfig"
+          autowire-candidate="true">
+        <constructor-arg value="${json.placeholder.protocol}" type="java.lang.String"/>
+        <constructor-arg value="${json.placeholder.ip}" type="java.lang.String"/>
+    </bean>
+
+    <bean id="onlineHtmlEditorConfig" class="com.genesys.framework.config.OnlineHtmlEditorConfig"
+          autowire-candidate="true">
+        <constructor-arg value="${online.html.editor.protocol}" type="java.lang.String"/>
+        <constructor-arg value="${online.html.editor.ip}" type="java.lang.String"/>
+    </bean>
+
+    <bean id="sauceDemoConfig" class="com.genesys.framework.config.SauceDemoConfig" autowire-candidate="true">
+        <constructor-arg value="${sauce.demo.protocol}" type="java.lang.String"/>
+        <constructor-arg value="${sauce.demo.ip}" type="java.lang.String"/>
+        <constructor-arg value="${sauce.demo.basePath}" type="java.lang.String"/>
+    </bean>
+
+    <bean id="seleniumConfig" class="com.genesys.framework.config.SeleniumConfig" autowire-candidate="true">
+        <constructor-arg value="${selenium.driver.browserType}" type="java.lang.String"/>
+        <constructor-arg value="${selenium.driver.isHeadless}" type="boolean"/>
+        <constructor-arg value="${selenium.driver.timeout}" type="long"/>
+    </bean>
+</beans>
