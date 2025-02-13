@@ -32,7 +32,7 @@ Feature: Interview project cases
     And I apply underline formatting on the editor
     Then validate that the formatted text is in the text editor
 
-  Scenario: Case 4 - iframe and tab handling
+  Scenario: Case 4 - iFrame and tab handling
     When I am on the guru99 home page
     Then validate that the guru99 IFrame is visible
     When I click on the jmeter image
@@ -42,3 +42,7 @@ Feature: Interview project cases
     Then I validate that the pop up message contains "Successfully"
     When I click on selenium dropdown and choose the tooltip option
     Then validate the tooltip page contains the download now button
+
+  Scenario: Case 5 - REST API testing
+    When I query all the users
+    #Then I log the names and the email addresses

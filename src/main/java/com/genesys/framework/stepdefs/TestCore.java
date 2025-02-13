@@ -1,6 +1,7 @@
 package com.genesys.framework.stepdefs;
 
 import com.genesys.framework.context.ScenarioContext;
+import com.genesys.framework.rest.UserService.UserService;
 import com.genesys.framework.selenium.pom.guru99.Guru99HomePage;
 import com.genesys.framework.selenium.pom.guru99.Guru99NavBar;
 import com.genesys.framework.selenium.pom.guru99.Guru99TooltipPage;
@@ -75,4 +76,9 @@ public class TestCore {
     protected Guru99TooltipPage getGuru99TooltipPage() {
         return guru99Store.getGuru99TooltipPage();
     }
+
+    protected UserService getUserService() {
+        return jsonPlaceholderStore.getUserService();
+    }
+
 }
