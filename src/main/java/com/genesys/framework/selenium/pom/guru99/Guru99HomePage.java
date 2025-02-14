@@ -3,12 +3,14 @@ package com.genesys.framework.selenium.pom.guru99;
 import com.genesys.framework.config.Guru99Config;
 import com.genesys.framework.selenium.WebDriverFactory;
 import com.genesys.framework.selenium.pom.BasePage;
+import io.cucumber.spring.ScenarioScope;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.springframework.stereotype.Component;
 
+@ScenarioScope
 @Component
 public class Guru99HomePage extends BasePage {
     private final Guru99Config guru99Config;

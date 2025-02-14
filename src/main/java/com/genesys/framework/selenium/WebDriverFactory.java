@@ -1,6 +1,7 @@
 package com.genesys.framework.selenium;
 
 import com.genesys.framework.config.SeleniumConfig;
+import io.cucumber.spring.ScenarioScope;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -13,8 +14,8 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.TimeUnit;
 
 @Component
+@ScenarioScope
 public class WebDriverFactory {
-    private static final Logger         logger = LogManager.getLogger(WebDriverFactory.class);
     private static       WebDriver      driver;
     private final        SeleniumConfig seleniumConfig;
 
@@ -23,8 +24,6 @@ public class WebDriverFactory {
     }
 
     private void init() {
-        logger.info("Initializing the {} driver", seleniumConfig.getBrowserType());
-
         switch (seleniumConfig.getBrowserType()) {
             case "chrome" -> driver = initChromeDriver();
             case "firefox" -> driver = initFirefoxDriver();
@@ -33,8 +32,6 @@ public class WebDriverFactory {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(seleniumConfig.getTimeout(), TimeUnit.SECONDS);
-
-        logger.info("Chrome driver initialized: {}", WebDriverInitializationListener.isInitialized());
     }
 
     private ChromeDriver initChromeDriver() {
@@ -64,9 +61,10 @@ public class WebDriverFactory {
 
     public WebDriver getDriver() {
         if (!WebDriverInitializationListener.isInitialized()) {
-            WebDriverInitializationListener.setIsInitialized(true);
             init();
+            WebDriverInitializationListener.setIsInitialized(true);
         }
+
         return driver;
     }
 }
