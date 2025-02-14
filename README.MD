@@ -73,7 +73,9 @@ Case 5 – REST API testing
    Ervin Howell | Shanna@melissa.tv
 5. Verify the first email address contains @
 
+---
 
+Location of the tests: src/main/resources/features/scenarios.feature
 
 
    Don’t forget to upload your code to GitHub!
