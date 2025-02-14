@@ -20,10 +20,11 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class JsonPlaceholderSteps extends TestCore {
     private static final Logger LOG = LogManager.getLogger(TestCore.class);
 
-
-    public JsonPlaceholderSteps(final ScenarioContext scenarioContext, final Guru99Store guru99Store, final JsonPlaceholderStore jsonPlaceholderStore, final OnlineHtmlEditorStore onlineHtmlEditorStore, final SauceDemoStore sauceDemoStore) {
+    public JsonPlaceholderSteps(final ScenarioContext scenarioContext, final Guru99Store guru99Store,
+                                final JsonPlaceholderStore jsonPlaceholderStore, final OnlineHtmlEditorStore onlineHtmlEditorStore, final SauceDemoStore sauceDemoStore) {
         super(scenarioContext, guru99Store, jsonPlaceholderStore, onlineHtmlEditorStore, sauceDemoStore);
     }
+
 
     @When("I query all the users and store as {word}")
     public void iQueryAllTheUsers(final String identifier) throws IOException {

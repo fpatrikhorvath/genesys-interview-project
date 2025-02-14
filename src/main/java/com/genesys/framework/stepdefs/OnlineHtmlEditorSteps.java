@@ -16,8 +16,7 @@ public class OnlineHtmlEditorSteps extends TestCore {
 
 
     public OnlineHtmlEditorSteps(final ScenarioContext scenarioContext, final Guru99Store guru99Store,
-                                 final JsonPlaceholderStore jsonPlaceholderStore, final OnlineHtmlEditorStore onlineHtmlEditorStore,
-                                 final SauceDemoStore sauceDemoStore) {
+                                 final JsonPlaceholderStore jsonPlaceholderStore, final OnlineHtmlEditorStore onlineHtmlEditorStore, final SauceDemoStore sauceDemoStore) {
         super(scenarioContext, guru99Store, jsonPlaceholderStore, onlineHtmlEditorStore, sauceDemoStore);
     }
 

@@ -26,6 +26,7 @@ public class SauceDemoSteps extends TestCore {
         this.sauceDemoCredJsonReaderService = sauceDemoCredJsonReaderService;
     }
 
+
     @Given("I am on the sauce inventory page")
     public void imOnTheSauceDemoInventoryPage() {
         getSauceDemoInventoryPage().open();

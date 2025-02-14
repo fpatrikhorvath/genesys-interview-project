@@ -8,9 +8,8 @@ import com.genesys.framework.stores.JsonPlaceholderStore;
 import com.genesys.framework.stores.OnlineHtmlEditorStore;
 import com.genesys.framework.stores.SauceDemoStore;
 import io.cucumber.java.After;
-import io.cucumber.java.Scenario;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 
 public class Hooks extends TestCore {
     private final WebDriverFactory webDriverFactory;
@@ -24,16 +23,7 @@ public class Hooks extends TestCore {
 
 
     @After
-    public void tearDown(final Scenario scenario) {
-
-        if (scenario.isFailed() && WebDriverInitializationListener.isInitialized()) {
-            final byte[] screenshot = ((TakesScreenshot) webDriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", "Screenshot");
-        }
-
-        if (WebDriverInitializationListener.isInitialized()) {
-            webDriverFactory.tearDown();
-            WebDriverInitializationListener.setIsInitialized(false);
-        }
+    public void tearDown(){
+        webDriverFactory.tearDown();
     }
 }

@@ -34,7 +34,6 @@ public class WebDriverFactory {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(seleniumConfig.getTimeout(), TimeUnit.SECONDS);
 
-        WebDriverInitializationListener.setIsInitialized(true);
         logger.info("Chrome driver initialized: {}", WebDriverInitializationListener.isInitialized());
     }
 
@@ -44,7 +43,6 @@ public class WebDriverFactory {
         if (seleniumConfig.isHeadless()) {
             options.addArguments("--headless");
         }
-
         return new ChromeDriver(options);
     }
 
@@ -54,13 +52,11 @@ public class WebDriverFactory {
         if (seleniumConfig.isHeadless()) {
             options.addArguments("--headless");
         }
-
         return new FirefoxDriver(options);
     }
 
     public void tearDown() {
         if (WebDriverInitializationListener.isInitialized()) {
-            driver.close();
             driver.quit();
             WebDriverInitializationListener.setIsInitialized(false);
         }
@@ -68,6 +64,7 @@ public class WebDriverFactory {
 
     public WebDriver getDriver() {
         if (!WebDriverInitializationListener.isInitialized()) {
+            WebDriverInitializationListener.setIsInitialized(true);
             init();
         }
         return driver;
