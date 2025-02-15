@@ -18,7 +18,9 @@ public class SauceDemoLoginPage extends BasePage {
     @FindBy(how = How.ID, using = "password")
     private       WebElement      passwordInputField;
     @FindBy(how = How.ID, using = "login-button")
-    private       WebElement      loginButton;
+    private       WebElement loginButton;
+    @FindBy(how = How.XPATH, using = "//h3[text()='Epic sadface: Username is required']")
+    private       WebElement incorrectCredsErrorMessage;
 
     protected SauceDemoLoginPage(final WebDriverFactory driverFactory, final SauceDemoConfig sauceDemoConfig) {
         super(driverFactory);
@@ -30,9 +32,19 @@ public class SauceDemoLoginPage extends BasePage {
         return loginButton.isDisplayed();
     }
 
-    public SauceDemoLoginPage loginByType(final String username, final String password) {
+    public SauceDemoLoginPage enterUsername(final String username) {
         usernameInputField.sendKeys(username);
+
+        return this;
+    }
+
+    public SauceDemoLoginPage enterPassword(final String password) {
         passwordInputField.sendKeys(password);
+
+        return this;
+    }
+
+    public SauceDemoLoginPage clickToLogin() {
         loginButton.click();
 
         return this;
@@ -54,5 +66,9 @@ public class SauceDemoLoginPage extends BasePage {
         loginButton.click();
 
         return this;
+    }
+
+    public boolean isLoginFailedErrorDisplayed() {
+        return incorrectCredsErrorMessage.isDisplayed();
     }
 }

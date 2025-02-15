@@ -35,7 +35,10 @@ public class SauceDemoSteps extends TestCore {
     @And("I log in with the credentials from the json")
     public void iLogInWithTheCredentialsFromTheJson() throws IOException {
         final SauceDemoCredConfig sauceDemoCredConfig = sauceDemoCredJsonReaderService.readJsonFile();
-        getSauceDemoLoginPage().loginByType(sauceDemoCredConfig.getUsername(), sauceDemoCredConfig.getPassword());
+        getSauceDemoLoginPage()
+                .enterUsername(sauceDemoCredConfig.getUsername())
+                .enterPassword(sauceDemoCredConfig.getPassword())
+                .clickToLogin();
     }
 
     @When("I select the {word} item")
@@ -82,4 +85,16 @@ public class SauceDemoSteps extends TestCore {
         getSauceDemoInventoryPage().scrollToFooter();
     }
 
+    @When("I click on the login button")
+    public void iClickOnTheLoginButton() {
+        getSauceDemoLoginPage().clickToLogin();
+    }
+
+    @Then("I validate the error message")
+    public void iValidateTheErrorMessage() {
+        assertThat(getSauceDemoLoginPage()
+                .isLoginFailedErrorDisplayed())
+                .withFailMessage("Error message is missing")
+                .isTrue();
+    }
 }

@@ -11,6 +11,8 @@ Feature: Interview project cases
 
   Scenario: Case 2 - Verify error messages for mandatory fields
     Given I am on the sauce inventory page
+    When I click on the login button
+    Then I validate the error message
     When I log in as standard user
     And I scroll to the footer
     Then validate that the footer message contains "2025"
