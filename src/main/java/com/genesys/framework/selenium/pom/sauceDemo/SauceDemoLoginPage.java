@@ -19,7 +19,7 @@ public class SauceDemoLoginPage extends BasePage {
     private       WebElement      passwordInputField;
     @FindBy(how = How.ID, using = "login-button")
     private       WebElement loginButton;
-    @FindBy(how = How.XPATH, using = "//h3[text()='Epic sadface: Username is required']")
+    @FindBy(how = How.XPATH, using = "//h3[text()='Epic sadface: Username is required' and @data-test='error']")
     private       WebElement incorrectCredsErrorMessage;
 
     protected SauceDemoLoginPage(final WebDriverFactory driverFactory, final SauceDemoConfig sauceDemoConfig) {
