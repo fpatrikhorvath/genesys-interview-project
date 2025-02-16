@@ -66,7 +66,7 @@ Case 5 – REST API testing
    Request type: GET
    Host: https://jsonplaceholder.typicode.com  
    Endpoint: /users
-3. Parse response to Json format (It is by default - I parsed into a pojo instead)
+3. Parse response to Json format (It is by default - I serialized into a pojo instead)
 4. Log only the names and emails from the response data  
    Example:  
    Leanne Graham | Sincere@april.biz
